@@ -8,26 +8,76 @@ package modele;
 import java.util.Calendar;
 
 /**
- *
+ * Classe modèle qui correspond à l'année scolaire
+ * 
  * @author Famille Francois
  */
 public class AnneeScolaire {
-    private int annee;
+    /*
+     * Les attributs : id et année
+     */
+    private int id = 0;
+    private int annee = 0;
     
+    /**
+     * Constructeur par defaut
+     */
     public AnneeScolaire(){
-        this.annee = Calendar.getInstance().get(Calendar.YEAR);
+        this(0, Calendar.getInstance().get(Calendar.YEAR));
     }
     
-    public AnneeScolaire(int year){
-        this.annee = year;
+    /**
+     * Constructeur par id et l'année
+     * <br> Si l'année = 2018 donc l'année scolaire : 2018/2019
+     * @param id : identifiant de l'année scolaire
+     * @param annee : année scolaire 
+     */
+    public AnneeScolaire(int id, int annee){
+        this.id = id;
+        this.annee = annee;
+    }
+
+    /**
+     * Obtenir l'identifiant de l'année scolaire
+     * @return 
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Modifier l'identifiant de l'année scolaire
+     * @param id 
+     */
+    public void setId(int id) {
+        this.id = id;
     }
     
-    //set && get
-    public void setAnnee(int year){
-        this.annee = year;
-    }
-    
+    /**
+     * Obtenir l'année (inférieur) de l'année scolaire
+     * @return 
+     */
     public int getAnnee(){
         return this.annee;
+    }
+    
+    /**
+     * Modifier l'année (inférieure) de l'année soclaire
+     * @param annee : année inférieur
+     */
+    public void setAnnee(int annee){
+        this.annee = annee;
+    }
+    
+    @Override
+    public String toString() {
+        String strEcole = "";
+        
+        strEcole+=this.getAnnee()+" / "+(this.getAnnee()+1)+"<br>";
+        strEcole+="<hr>" ;
+        
+        strEcole = "<html>" + strEcole + "</html>";
+        
+        return strEcole;
     }
 }
