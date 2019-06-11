@@ -3,46 +3,66 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controleur;
+package dao;
 
-import java.sql.Connection;
+import connexion.Connexion;
 
 /**
- *
+ * Classe qui permet de construire des objets DAO
  * @author Famille Francois
  */
-public class DAOFactory extends AbstractDAOFactory{
-  protected static final Connection conn = SdzConnection.getInstance();   
+public class DAOFactory{
+    protected static final Connexion connexion = Connexion.getSingleton();
 
-  public DAO getClasseDAO(){
-    return new ClasseDAO(conn);
-  }
+    public static DAOAnneeScolaire getDAOAnneeScolaire(){
+      return new DAOAnneeScolaire( connexion );
+    }
 
-  public DAO getProfesseurDAO(){
-    return new ProfesseurDAO(conn);
-  }
-
-  public DAO getEleveDAO(){
-    return new EleveDAO(conn);
-  }
-
-  public DAO getMatiereDAO(){
-    return new MatiereDAO(conn);
-  }
-  
-  public DAO getAnneeScolaireDAO(){
-    return new MatiereDAO(conn);
-  }
-  
-  public DAO getSemesterDAO(){
-    return new MatiereDAO(conn);
-  }
-  
-  public DAO getEvaluationDAO(){
-    return new MatiereDAO(conn);
-  }
-  
-  public DAO getBulletinDAO(){
-    return new MatiereDAO(conn);
-  }
+    public static DAOBulletin getDAOBulletin(){
+      return new DAOBulletin( connexion );
+    }
+    
+    public static DAOClasse getDAOClasse(){
+      return new DAOClasse( connexion );
+    }
+    
+    public static DAODetailBulletin getDAODetailBulletin(){
+      return new DAODetailBulletin( connexion );
+    }
+    
+    public static DAODiscipline getDAODAODiscipline(){
+      return new DAODiscipline( connexion );
+    }
+    
+    public static DAOEcole getDAOEcole(){
+      return new DAOEcole( connexion );
+    }
+    
+    public static DAODiscipline getDAODiscipline(){
+      return new DAODiscipline( connexion );
+    }
+    
+    public static DAOEnseignement getDAOEnseignement(){
+      return new DAOEnseignement( connexion );
+    }
+    
+    public static DAOEvaluation getDAOEvaluation(){
+      return new DAOEvaluation( connexion );
+    }
+    
+    public static DAOInscription getDAOInscription(){
+      return new DAOInscription( connexion );
+    }
+    
+    public static DAONiveau getDAONiveau(){
+      return new DAONiveau( connexion );
+    }
+    
+    public static DAOPersonne getDAOPersonne(){
+      return new DAOPersonne( connexion );
+    }
+    
+    public static DAOTrimestre getDAOTrimestre(){
+      return new DAOTrimestre( connexion );
+    }
 }
